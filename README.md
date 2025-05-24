@@ -4,7 +4,7 @@
 
 **dCOI** is a platform that detects and visualizes delegate conflicts of interest across DAOs, empowering token holders with transparent risk metrics and informed voting decisions.
 
-[Demo Video]() | [Live App](https://dcoi.vercel.app) | [Slide Deck]()
+[Demo Video]() | [Live App](https://dcoi.vercel.app) | [Slide Deck](https://github.com/hadzija7/dcoi/blob/main/slide-deck.md)
 
 ---
 
