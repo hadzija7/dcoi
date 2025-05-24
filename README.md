@@ -32,7 +32,8 @@ DAOs are meant to decentralize governance, yet most rely on a small group of rec
 4. **Score & Rank**: Create a conflict scorecard per delegate
 5. **Visualize**: Show all data via simple dashboards for users
 
-<img width="450" alt="image" src="https://github.com/user-attachments/assets/ed06765a-5a30-4002-bb04-42b9a0c2f42b" />
+<img width="450" alt="image" src="https://github.com/user-attachments/assets/c3ad05a5-1b2d-4a1d-9b92-9ee8a99a8c69" />
+
 
 ---
 
