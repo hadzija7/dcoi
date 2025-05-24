@@ -40,7 +40,7 @@ DAOs are meant to decentralize governance, yet most rely on a small group of rec
 ## User Flow
 
 1. User selects DAO → Fetches delegates via Tally API
-2. Delegate profiles are scored → Based on COI risk
+2. Delegate profiles are scored → Based on CoI risk
 3. User views detailed dashboards → Conflicts, affiliations, voting patterns
 4. (Future) Redelegate with 1 click or stake trust score
 5. (Future) Scout submits proof of COI → Flag appears in delegate profile
