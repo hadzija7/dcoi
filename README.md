@@ -4,7 +4,7 @@
 
 **dCOI** is a platform that detects and visualizes delegate conflicts of interest across DAOs, empowering token holders with transparent risk metrics and informed voting decisions.
 
-[Demo Video]() | [Live App](https://dcoi.vercel.app) | [Slide Deck](https://github.com/hadzija7/dcoi/blob/main/slide-deck.md)
+[Demo Video](https://youtu.be/n1jMRf_DNqE) | [Live App](https://dcoi.vercel.app) | [Slide Deck](https://github.com/hadzija7/dcoi/blob/main/slide-deck.md)
 
 ---
 
@@ -34,7 +34,6 @@ DAOs are meant to decentralize governance, yet most rely on a small group of rec
 
 <img width="450" alt="image" src="https://github.com/user-attachments/assets/c3ad05a5-1b2d-4a1d-9b92-9ee8a99a8c69" />
 
-
 ---
 
 ## User Flow
@@ -43,7 +42,7 @@ DAOs are meant to decentralize governance, yet most rely on a small group of rec
 2. Delegate profiles are scored → Based on CoI risk
 3. User views detailed dashboards → Conflicts, affiliations, voting patterns
 4. (Future) Redelegate with 1 click or stake trust score
-5. (Future) Scout submits proof of COI → Flag appears in delegate profile
+5. (Future) Scout submits proof of CoI → Flag appears in delegate profile
 
 ---
 
