@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   AlertTriangle,
   Eye,
@@ -13,6 +13,8 @@ import {
   ChevronDown,
   ChevronRight,
 } from "lucide-react";
+import { queryDelegatesForDao } from "@/lib/queryDelegatesForDao";
+import { queryChains } from "@/lib/queryChains";
 
 const DAODelegateAnalyzer = () => {
   const [selectedDelegate, setSelectedDelegate] = useState("all");
@@ -20,16 +22,56 @@ const DAODelegateAnalyzer = () => {
   const [sortBy, setSortBy] = useState("riskScore");
   const [expandedRows, setExpandedRows] = useState(new Set());
 
-  // const queryDelegatees = async () => {
-  //   const delegatees = await fetch("https://api.tally.xyz/query/delegatees", {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
+  const daoIds: string[] = ["2206072050315953936"];
 
-  //     },
-  //   });
-  //   console.log("Delegatees:", delegatees);
-  // };
+  const queryDelegatees = async (): Promise<DelegateMapping> => {
+    const mapping: DelegateMapping = {
+      byDelegate: {},
+      byDao: {},
+    };
+
+    for (const daoId of daoIds) {
+      try {
+        const daoResults: any = await queryDelegatesForDao(daoId);
+        const delegates = daoResults?.nodes || [];
+
+        // Initialize the DAO's entry in byDao mapping
+        mapping.byDao[daoId] = {
+          delegates: [],
+        };
+
+        // Process each delegate
+        for (const delegate of delegates) {
+          const delegateAddress = delegate.account.address;
+
+          // Update byDelegate mapping
+          if (!mapping.byDelegate[delegateAddress]) {
+            mapping.byDelegate[delegateAddress] = {
+              delegate: delegate,
+              daos: [],
+            };
+          }
+          mapping.byDelegate[delegateAddress].daos.push(daoId);
+
+          // Update byDao mapping
+          mapping.byDao[daoId].delegates.push(delegateAddress);
+        }
+      } catch (error) {
+        console.error(`Error querying delegates for DAO ${daoId}:`, error);
+      }
+    }
+    console.log("Delegates mapping: ", mapping);
+    return mapping;
+  };
+
+  const queryChainsHandler = async () => {
+    await queryChains();
+  };
+
+  useEffect(() => {
+    // queryChainsHandler();
+    queryDelegatees();
+  }, []);
 
   // Mock data structure with realistic conflict scenarios
   const daos = [
@@ -812,9 +854,6 @@ const DAODelegateAnalyzer = () => {
                 Few or no significant conflicts
               </div>
             </div>
-            {/* <div>
-              <button onClick={queryDelegatees}>Query</button>
-            </div> */}
           </div>
         </div>
       </div>
